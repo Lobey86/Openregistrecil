@@ -1,0 +1,25 @@
+openMairie Exemple - Installation
+=================================
+
+=========================================
+Toute la documentation d'openMairie sur: 
+http://www.openmairie.org
+=========================================
+
+pré requis :  [Requiring version:] : voir README.TXT
+
+Installer le package openmairie_exemple dans le repertoire www d'apache
+creer la base de donnees sous mysql openexemple (par defaut)
+                         ou sur postgresql
+executer les scripts dans data/mysql/ ou data/pgsql
+    init.sql  (framework openmairie)
+ 
+Si vous utiliser un schema "openmairie" sous postgre :
+    data/pgsql/initschema.sql
+
+lancement dans votre navigateur :
+http://localhost/openmairie_exemple/
+
+mot de passe demo/demo
+
+parametrage du framework openMairie: voir README.TXT

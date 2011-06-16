@@ -1,0 +1,136 @@
+<?php
+//$Id$ 
+//gen openMairie le 11/11/2010 17:58 
+$import= "Insertion dans la table om_etat voir rec/import_utilisateur.inc";
+$table= 'om_etat';
+$id='om_etat'; // numerotation automatique
+$verrou=1;// =0 pas de mise a jour de la base / =1 mise a jour
+$DEBUG=0; // =0 pas d affichage messages / =1 affichage detail enregistrement
+$fic_erreur=1; // =0 pas de fichier d erreur / =1  fichier erreur
+$fic_rejet=1; // =0 pas de fichier pour relance / =1 fichier relance traitement
+$ligne1=1;// = 1 : 1ere ligne contient nom des champs / o sinon
+$obligatoire['om_etat']=1;// obligatoire = 1
+//* cle secondaire=om_collectivite
+$exist['om_collectivite']=1;//  0=non / 1=oui
+$sql_exist['om_collectivite']= "select * from om_collectivite where om_collectivite = '";
+// * champ = om_etat
+$zone['om_etat']='0';
+// $defaut['om_etat']='***'; // *** par defaut si non renseigne
+// * champ = om_collectivite
+$zone['om_collectivite']='1';
+// $defaut['om_collectivite']='***'; // *** par defaut si non renseigne
+// * champ = id
+$zone['id']='2';
+// $defaut['id']='***'; // *** par defaut si non renseigne
+// * champ = libelle
+$zone['libelle']='3';
+// $defaut['libelle']='***'; // *** par defaut si non renseigne
+// * champ = orientation
+$zone['orientation']='4';
+// $defaut['orientation']='***'; // *** par defaut si non renseigne
+// * champ = format
+$zone['format']='5';
+// $defaut['format']='***'; // *** par defaut si non renseigne
+// * champ = footerfont
+$zone['footerfont']='6';
+// $defaut['footerfont']='***'; // *** par defaut si non renseigne
+// * champ = footerattribut
+$zone['footerattribut']='7';
+// $defaut['footerattribut']='***'; // *** par defaut si non renseigne
+// * champ = footertaille
+$zone['footertaille']='8';
+// $defaut['footertaille']='***'; // *** par defaut si non renseigne
+// * champ = logo
+$zone['logo']='9';
+// $defaut['logo']='***'; // *** par defaut si non renseigne
+// * champ = logoleft
+$zone['logoleft']='10';
+// $defaut['logoleft']='***'; // *** par defaut si non renseigne
+// * champ = logotop
+$zone['logotop']='11';
+// $defaut['logotop']='***'; // *** par defaut si non renseigne
+// * champ = titre
+$zone['titre']='12';
+// $defaut['titre']='***'; // *** par defaut si non renseigne
+// * champ = titreleft
+$zone['titreleft']='13';
+// $defaut['titreleft']='***'; // *** par defaut si non renseigne
+// * champ = titretop
+$zone['titretop']='14';
+// $defaut['titretop']='***'; // *** par defaut si non renseigne
+// * champ = titrelargeur
+$zone['titrelargeur']='15';
+// $defaut['titrelargeur']='***'; // *** par defaut si non renseigne
+// * champ = titrehauteur
+$zone['titrehauteur']='16';
+// $defaut['titrehauteur']='***'; // *** par defaut si non renseigne
+// * champ = titrefont
+$zone['titrefont']='17';
+// $defaut['titrefont']='***'; // *** par defaut si non renseigne
+// * champ = titreattribut
+$zone['titreattribut']='18';
+// $defaut['titreattribut']='***'; // *** par defaut si non renseigne
+// * champ = titretaille
+$zone['titretaille']='19';
+// $defaut['titretaille']='***'; // *** par defaut si non renseigne
+// * champ = titrebordure
+$zone['titrebordure']='20';
+// $defaut['titrebordure']='***'; // *** par defaut si non renseigne
+// * champ = titrealign
+$zone['titrealign']='21';
+// $defaut['titrealign']='***'; // *** par defaut si non renseigne
+// * champ = corps
+$zone['corps']='22';
+// $defaut['corps']='***'; // *** par defaut si non renseigne
+// * champ = corpsleft
+$zone['corpsleft']='23';
+// $defaut['corpsleft']='***'; // *** par defaut si non renseigne
+// * champ = corpstop
+$zone['corpstop']='24';
+// $defaut['corpstop']='***'; // *** par defaut si non renseigne
+// * champ = corpslargeur
+$zone['corpslargeur']='25';
+// $defaut['corpslargeur']='***'; // *** par defaut si non renseigne
+// * champ = corpshauteur
+$zone['corpshauteur']='26';
+// $defaut['corpshauteur']='***'; // *** par defaut si non renseigne
+// * champ = corpsfont
+$zone['corpsfont']='27';
+// $defaut['corpsfont']='***'; // *** par defaut si non renseigne
+// * champ = corpsattribut
+$zone['corpsattribut']='28';
+// $defaut['corpsattribut']='***'; // *** par defaut si non renseigne
+// * champ = corpstaille
+$zone['corpstaille']='29';
+// $defaut['corpstaille']='***'; // *** par defaut si non renseigne
+// * champ = corpsbordure
+$zone['corpsbordure']='30';
+// $defaut['corpsbordure']='***'; // *** par defaut si non renseigne
+// * champ = corpsalign
+$zone['corpsalign']='31';
+// $defaut['corpsalign']='***'; // *** par defaut si non renseigne
+// * champ = om_sql
+$zone['om_sql']='32';
+// $defaut['om_sql']='***'; // *** par defaut si non renseigne
+// * champ = sousetat
+$zone['sousetat']='33';
+// $defaut['sousetat']='***'; // *** par defaut si non renseigne
+// * champ = se_font
+$zone['se_font']='34';
+// $defaut['se_font']='***'; // *** par defaut si non renseigne
+// * champ = se_margeleft
+$zone['se_margeleft']='35';
+// $defaut['se_margeleft']='***'; // *** par defaut si non renseigne
+// * champ = se_margetop
+$zone['se_margetop']='36';
+// $defaut['se_margetop']='***'; // *** par defaut si non renseigne
+// * champ = se_margeright
+$zone['se_margeright']='37';
+// $defaut['se_margeright']='***'; // *** par defaut si non renseigne
+// * champ = se_couleurtexte
+$zone['se_couleurtexte']='38';
+// $defaut['se_couleurtexte']='***'; // *** par defaut si non renseigne
+// * champ = actif
+$zone['actif']='39';
+// $defaut['actif']='***'; // *** par defaut si non renseigne
+?>

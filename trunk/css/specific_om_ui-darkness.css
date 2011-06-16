@@ -1,0 +1,54 @@
+/**
+ * Cette feuille de style contient le style specifique a l'aaplication. Il est
+ * normalement appele apres le style de base ce qui permet de surcharger tous
+ * les elements souhaites.
+ * 
+ * @package openmairie_exemple
+ * @version SVN : $Id: specific.css 115 2010-10-01 09:03:11Z jbastide $
+ */
+
+/**
+ * STRUCTURE HTML 
+ */
+/* Textes du header et du footer */
+#actions, #shortlinks { color:#ffffff; }
+/* Liens du header et du footer */
+#actions a, #actions a:active, #actions a:visited { color:#cdcdcd; }
+#shortlinks a, #shortlinks a:active, #shortlinks a:visited { color:#cdcdcd; }
+#footer a, #footer a:active, #footer a:visited { color:#0078A3; }
+/* Couleur de fond du contenu et du footer */
+
+/**
+ * MENU
+ */
+/* Items au survol et separateurs */
+#menu li.elem:hover { background-color:#0078A3; }
+#menu li.hr { background-color:#0078A3; height:0px; }
+/* IE Fix */
+/* Rubriks */
+/* Items */
+
+/**
+ * FORM
+ */
+
+/**
+ * TABLE
+ */
+/* Bordure de tableau */
+table.tab-tab { border-color: #cccccc; }
+table.tab-tab th, table.tab-tab tr, table.tab-tab td { border-color: #cccccc; }
+/* Recherche */
+
+/**
+ * ONGLETS
+ */
+/* Survol des liens des onglets */
+/* Onglet selectionne : suppression de la bordure du bas */
+
+/**
+ * DIVERS
+ */
+/* Liste */
+/* Fieldset */
+fieldset.cadre { background: #f3f3f3 none; }

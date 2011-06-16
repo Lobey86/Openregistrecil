@@ -1,0 +1,61 @@
+﻿openMairie Exemple - Historique des versions
+============================================
+
+2.00 ----------------------------------------------------------------
+
+version openMairie 4.01
+
+
+(bug) php5 txform $_post 12/11/2009
+
+1.03 a faire --------------------------------------------------------
+(+) sql/mysql/'langue'/traitement.reqmo.inc
+(debug) requeteur.php :
+        - input dans close where
+        - zone a saisie multiple (suppression rc et fin ligne,point virgule
+           pour sortie csv)
+(bug) wamp5 -> php/fpdf5 (ver1.6)
+
+1.02 ----------------------------------------------------------------
+
+Nouvelle version base de donnees : modification de table ver1.02.sql
+modification des donnees: data/ver2.00.sql
+
+(+) visualisation du registre sans acces mot de passe
+registre_visu.php
+login.php
+
+
+(+) - pdfetat.php (possibilite atttribut gras(<b>) dans titre et corps de l'etat)
+     - registre.etat.inc avec attributs
+
+
+(bug) correction bug destinnataire -> cle devient numerique et abandon de la cle alpha
+        pb de doublons
+destinataire.inc
+destinataire.form
+destinataire.class
+ATTENTION IL FAUT REPRENDRE CETTE TABLE
+
+
+(+) registre_organisme.inc
+registre :  - passage champs conservation en textarea et ajout champs exclusion
+               - modif correspondante dans registre.class.php
+
+(+) edition : registre.etat.inc -> ajout  exclusion
+organisme : passage champs organisme  a 20 caracteres
+
+
+1.00 ----------------------------------------------------------------
+
+version initiale 
+
+dans php 
+
+openmairie:
+- formulairedyn.class.php -> \n pour debug 01072008
+- spg upload 2 et voir2
+- dbformdyn
+- var.inc verrou
+- txform.class.ph
+
