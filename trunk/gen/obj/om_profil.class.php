@@ -1,7 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 06/12/2010 15:57 
-require_once (PATH_OPENMAIRIE."formulairedyn.class.php");
+//gen openMairie le 02/09/2011 16:50 
 require_once (PATH_OPENMAIRIE."dbformdyn.class.php");
 
 class om_profil_gen extends dbForm {
@@ -19,17 +18,19 @@ class om_profil_gen extends dbForm {
 	//====================================
 	// verifier avant validation [verify]
 	//=====================================
+    /**
+     * Methode verifier
+     */
+    function verifier($val = array(), &$db = NULL, $DEBUG = false) {
+        // On appelle la methode de la classe parent
+        parent::verifier($val, $db, $DEBUG);
+        // On verifie si le champ n'est pas vide
+        if ($this->valF['libelle'] == "") {
+            $this->correct = false;
+            $this->addToMessage(_("Le champ")." "._("libelle")." "._("est obligatoire"));
+        }
+    }
 
-	function verifier($val,&$db,$DEBUG) {
-	// verifier le 2eme champ si $verifier = 1 dans gen/dyn/form.inc
-		$this->correct=True;
-		$f="&nbsp!&nbsp;&nbsp;&nbsp;&nbsp;";
-		$imgv="<img src='../img/punaise.png' style='vertical-align:middle' hspace='2' border='0'>";
-		if ($this->valF['libelle']==""){
-			$this->msg= $this->msg.$imgv._('libelle')."&nbsp;"._('obligatoire').$f;
-			$this->correct=False;
-		}
-	} // fin verifier [end verify]
 
 	//==========================
 	// Formulaire  [form]
@@ -84,36 +85,20 @@ class om_profil_gen extends dbForm {
 	//==================================
 	// cle secondaire  [secondary key]
 	//==================================
+    /**
+     * Methode clesecondaire
+     */
+    function cleSecondaire($id, &$db = NULL, $val = array(), $DEBUG = false) {
+        // On appelle la methode de la classe parent
+        parent::cleSecondaire($id, $db, $val, $DEBUG);
+        // Verification de la cle secondaire : om_droit
+        $this->rechercheTable($db, "om_droit", "om_profil", $id);
+        // Verification de la cle secondaire : om_utilisateur
+        $this->rechercheTable($db, "om_utilisateur", "om_profil", $id);
+        // Verification de la cle secondaire : om_widget
+        $this->rechercheTable($db, "om_widget", "om_profil", $id);
+    }
 
-	function cleSecondaire($id,&$db,$val,$debug) {
-		$this->correct=True;
-		$f="&nbsp!&nbsp;&nbsp;&nbsp;&nbsp;";
-		$imgv="<img src='../img/punaise.png' style='vertical-align:middle' hspace='2' border='0'>";
-		// cle secondaire om_droit
-		$sql = "select * from om_droit where om_profil ='".$id."'";
-		$res = $db->query($sql);
-		if($debug==1) echo $sql;
-		if (database::isError($res))
-			die($res->getMessage(). " => Echec  ".$sql);
-		else{
-			$nbligne=$res->numrows();
-			$this->msg = $this->msg.$imgv._('il_y_a')." ".$nbligne." "._('om_droit')." "._('pour')." "._('om_profil')." [".$id."]<br>";
-			if($nbligne>0)
-				$this->correct=false;
-		}
-		// cle secondaire om_utilisateur
-		$sql = "select * from om_utilisateur where om_profil ='".$id."'";
-		$res = $db->query($sql);
-		if($debug==1) echo $sql;
-		if (database::isError($res))
-			die($res->getMessage(). " => Echec  ".$sql);
-		else{
-			$nbligne=$res->numrows();
-			$this->msg = $this->msg.$imgv._('il_y_a')." ".$nbligne." "._('om_utilisateur')." "._('pour')." "._('om_profil')." [".$id."]<br>";
-			if($nbligne>0)
-				$this->correct=false;
-		}
-	}// clesecondaire
 
 }// fin classe
 ?>
