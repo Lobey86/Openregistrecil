@@ -12,14 +12,12 @@ if ($_SESSION['niveau']== '1'){
 $href[3] = array(
     "lien" => "../pdf/pdfetat.php?obj=".$obj."&amp;idx=",
     "id" => "",
-    "lib" => "<img src=\"../img/pdf-16x16.png\" alt=\""
-             ._("Edition PDF")."\" title=\""._("Edition PDF")."\" />",
+    "lib" => "<span class=\"om-icon om-icon-16 om-icon-fix pdf-16\" title=\""._("Edition")."\">"._("Edition")."</span>",
 );
-$sousformulaire=array('om_utilisateur',
-                      'om_widget',
-                      'om_parametre',
+$sousformulaire=array('om_parametre',
+                      'om_utilisateur',
                       'om_etat',
-                      'om_sousetat',
                       'om_lettretype',
-                      'om_sig_point');
+                      'om_sousetat',
+                      'om_widget');
 ?>
