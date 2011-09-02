@@ -8,7 +8,6 @@ $champAffiche=array("registre",
 $href[3] = array(
     "lien" => "../pdf/pdfetat.php?obj=registre&amp;idx=",
     "id" => "",
-    "lib" => "<img src=\"../img/pdf-16x16.png\" alt=\""
-             ._("Edition PDF")."\" title=\""._("Edition PDF")."\" />",
+    "lib" => "<span class=\"om-icon om-icon-16 om-icon-fix pdf-16\" title=\""._("Edition")."\">"._("Edition")."</span>",
 );
 ?>

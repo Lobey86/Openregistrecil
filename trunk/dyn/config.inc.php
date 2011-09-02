@@ -37,13 +37,5 @@ $config['demo'] = true;
  */
 //$config['upload_extension'] = ".gif;.jpg;.jpeg;.png;.txt;.pdf;.csv;"
 
-/**
- * Theme de l'application - les differents choix possibles se trouvent dans le
- * dossier : ../lib/jquery-ui/css/
- * Default : $config['theme'] = "om_overcast";
- */
-//$config['theme'] = "om_overcast";
-$config['theme'] = "om_sunny";
-//$config['theme'] = "om_ui-darkness";
 
 ?>

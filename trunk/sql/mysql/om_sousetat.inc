@@ -10,9 +10,8 @@ $champRecherche=array('id','om_collectivite.libelle','om_sousetat.libelle','om_s
 $href[3] = array(
     "lien" => "../scr/valid_copie.php?obj=".$obj."&amp;idx=",
     "id" => "",
-    "lib" => "<img src=\"../img/save.jpg\" alt=\""
-             ._("copie")."\" title=\""._("Copie")."\" />",
-);
+    "lib" => "<span class=\"om-icon om-icon-16 om-icon-fix copy-16\" title=\"".
+		_("Copier")."\">"._("Copier")."</span>",);
 /**
  * Options
  */
@@ -34,8 +33,9 @@ else{
                     2 => array("lien" => "", "id" => "", "lib" => ""),
                     3 => array("lien" => "../scr/valid_copie.php?obj=".$obj."&amp;idx=",
                                "id" => "",
-                               "lib" => "<img src=\"../img/save.jpg\" alt=\""
-                                        ._("copie")."\" title=\""._("Copie")."\" />"),
+                               "lib" => "<span class=\"om-icon om-icon-16 om-icon-fix copy-16\" title=\""._("Copier").
+			       "\">"._("Copier")."</span>"),
+ 
                 ),
             ),
         ),

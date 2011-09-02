@@ -298,15 +298,7 @@ array_push($links,
         "title" => _("om_lettretype"),
         "right" => "om_lettretype_tab"
     ));
-/*
-array_push($links,
-    array(
-        "href" => "../scr/tab.php?obj=om_sig_point",
-        "class" => "om_sig_point",
-        "title" => _("om SIG"),
-        "right" => "om_sig_point_tab"
-    ));
-*/
+
 array_push($links,
     array(
         "href" => "../scr/tab.php?obj=om_widget",
@@ -335,7 +327,7 @@ array_push($links,
 array_push($links,
     array(
         "title" => _("Generateur"),
-        "href" => "../gen/gen.php",
+        "href" => "../scr/gen.php",
         "class" => "generator",
         "right" => "gen",
     ));

@@ -147,32 +147,7 @@ INSERT INTO om_sousetat (om_sousetat, om_collectivite, id, libelle, actif, titre
 -- om_sousetat_seq
 update om_sousetat_seq set id=4;
 
---
--- Contenu de la table 'om_widget'
---
 
-INSERT INTO om_widget (om_widget, om_collectivite, libelle, lien, texte, om_profil) VALUES
-(2, 1, 'avis negatif', '#', '<script type=''text/javascript''>\r\n    $.ajax({\r\n        type: ''GET'',\r\n        url:''../tdb//tab_wid.php'',  \r\n        cache: false,\r\n        data: ''&obj=registre_avisnegatif'',\r\n        success: function(html){\r\n            $(''#aff'').append(html);\r\n        }\r\n    });\r\n</script><div id=''aff''></div>', '3'),
-(3, 1, 'GoConcepts', 'http://www.goconcepts.fr', 'Acces utilisateur pour la maintenance', '1');
-
--- --------------------------------------------------------
-
---
--- Structure de la table 'om_widget_seq'
---
-
-CREATE TABLE om_widget_seq (
-  id int(10) unsigned NOT NULL auto_increment,
-  PRIMARY KEY  (id)
-) TYPE=MyISAM  AUTO_INCREMENT=4 ;
-
---
--- Contenu de la table 'om_widget_seq'
---
-
-UPDATE om_widget_seq SET id = '3';
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table 'organisme'

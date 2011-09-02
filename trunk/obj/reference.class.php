@@ -49,7 +49,7 @@ class reference extends reference_gen {
 			$form->setSelect("nature",$contenu);
 			// lien
 			$contenu=array();
-			$contenu[0]=" <img src='../img/cnil.gif' border ='0'> ";
+			$contenu[0]=" <img src='../app/img/cnil.gif' border ='0'> ";
 			$form->setSelect("cnil",$contenu);
 		}
 	}
