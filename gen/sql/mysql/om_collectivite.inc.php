@@ -1,6 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 06/12/2010 15:57 
+//gen openMairie le 02/09/2011 16:50 
 $DEBUG=0;
 $serie=15;
 $ico="../img/ico_application.png";
@@ -29,5 +29,5 @@ if ($_SESSION['niveau']== '2')
 	$selection='';
 else
 	$selection=" where om_collectivite.om_collectivite = '".$_SESSION['collectivite']."'";
-$sousformulaire=array('om_etat','om_lettretype','om_parametre','om_sousetat','om_utilisateur');
+$sousformulaire=array('om_etat','om_lettretype','om_parametre','om_sig_point','om_sousetat','om_utilisateur','om_widget');
 ?>

@@ -1,6 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 17/05/2011 11:41 
+//gen openMairie le 02/09/2011 16:50 
 $DEBUG=0;
 $serie=15;
 $ico="../img/ico_application.png";

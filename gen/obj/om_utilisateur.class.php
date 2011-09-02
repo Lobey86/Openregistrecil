@@ -1,7 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 06/12/2010 15:57 
-require_once (PATH_OPENMAIRIE."formulairedyn.class.php");
+//gen openMairie le 02/09/2011 16:50 
 require_once (PATH_OPENMAIRIE."dbformdyn.class.php");
 
 class om_utilisateur_gen extends dbForm {
@@ -42,17 +41,19 @@ class om_utilisateur_gen extends dbForm {
 	//====================================
 	// verifier avant validation [verify]
 	//=====================================
+    /**
+     * Methode verifier
+     */
+    function verifier($val = array(), &$db = NULL, $DEBUG = false) {
+        // On appelle la methode de la classe parent
+        parent::verifier($val, $db, $DEBUG);
+        // On verifie si le champ n'est pas vide
+        if ($this->valF['nom'] == "") {
+            $this->correct = false;
+            $this->addToMessage(_("Le champ")." "._("nom")." "._("est obligatoire"));
+        }
+    }
 
-	function verifier($val,&$db,$DEBUG) {
-	// verifier le 2eme champ si $verifier = 1 dans gen/dyn/form.inc
-		$this->correct=True;
-		$f="&nbsp!&nbsp;&nbsp;&nbsp;&nbsp;";
-		$imgv="<img src='../img/punaise.png' style='vertical-align:middle' hspace='2' border='0'>";
-		if ($this->valF['nom']==""){
-			$this->msg= $this->msg.$imgv._('nom')."&nbsp;"._('obligatoire').$f;
-			$this->correct=False;
-		}
-	} // fin verifier [end verify]
 
 	//==========================
 	// Formulaire  [form]

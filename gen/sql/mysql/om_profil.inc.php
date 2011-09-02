@@ -1,6 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 06/12/2010 15:57 
+//gen openMairie le 02/09/2011 16:50 
 $DEBUG=0;
 $serie=15;
 $ico="../img/ico_application.png";
@@ -26,5 +26,5 @@ $champRecherche=array('om_profil','libelle');
 $tri="";
 $edition="om_profil";
 $selection='';
-$sousformulaire=array('om_droit','om_utilisateur');
+$sousformulaire=array('om_droit','om_utilisateur','om_widget');
 ?>

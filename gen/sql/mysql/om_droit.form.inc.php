@@ -1,6 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 06/12/2010 15:57 
+//gen openMairie le 02/09/2011 16:50 
 $DEBUG=0;
 $ico="../img/ico_application.png";
 $ent="option->om_droit";

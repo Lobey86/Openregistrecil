@@ -1,7 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 12/05/2011 19:29 
-require_once (PATH_OPENMAIRIE."formulairedyn.class.php");
+//gen openMairie le 02/09/2011 16:50 
 require_once (PATH_OPENMAIRIE."dbformdyn.class.php");
 
 class om_tdb_gen extends dbForm {
@@ -15,8 +14,8 @@ class om_tdb_gen extends dbForm {
 		$this->valF['om_tdb'] = $val['om_tdb'];
 		$this->valF['login'] = $val['login'];
 		$this->valF['bloc'] = $val['bloc'];
-		$this->valF['om_widget'] = $val['om_widget'];
 		$this->valF['position'] = $val['position'];
+		$this->valF['om_widget'] = $val['om_widget'];
 	}
 
 	//=================================================
@@ -39,17 +38,19 @@ class om_tdb_gen extends dbForm {
 	//====================================
 	// verifier avant validation [verify]
 	//=====================================
+    /**
+     * Methode verifier
+     */
+    function verifier($val = array(), &$db = NULL, $DEBUG = false) {
+        // On appelle la methode de la classe parent
+        parent::verifier($val, $db, $DEBUG);
+        // On verifie si le champ n'est pas vide
+        if ($this->valF['login'] == "") {
+            $this->correct = false;
+            $this->addToMessage(_("Le champ")." "._("login")." "._("est obligatoire"));
+        }
+    }
 
-	function verifier($val,&$db,$DEBUG) {
-	// verifier le 2eme champ si $verifier = 1 dans gen/dyn/form.inc
-		$this->correct=True;
-		$f="&nbsp!&nbsp;&nbsp;&nbsp;&nbsp;";
-		$imgv="<img src='../img/punaise.png' style='vertical-align:middle' hspace='2' border='0'>";
-		if ($this->valF['login']==""){
-			$this->msg= $this->msg.$imgv._('login')."&nbsp;"._('obligatoire').$f;
-			$this->correct=False;
-		}
-	} // fin verifier [end verify]
 
 	//==========================
 	// Formulaire  [form]
@@ -61,54 +62,54 @@ class om_tdb_gen extends dbForm {
 			$form->setType('om_tdb','hidden');// cle automatique
 			$form->setType('login','text');
 			$form->setType('bloc','text');
+			$form->setType('position','text');
 			if($this->retourformulaire=='om_widget')
 				$form->setType('om_widget','hiddenstatic');
 			else
 				$form->setType('om_widget','select');
-			$form->setType('position','text');
 		}// fin ajout
 		if ($maj==1){ //modifier
 			$form->setType('om_tdb','hiddenstatic');
 			$form->setType('login','text');
 			$form->setType('bloc','text');
+			$form->setType('position','text');
 			if($this->retourformulaire=='om_widget')
 				$form->setType('om_widget','hiddenstatic');
 			else
 				$form->setType('om_widget','select');
-			$form->setType('position','text');
 		}// fin modifier
 		if ($maj==2){ //supprimer
 			$form->setType('om_tdb','hiddenstatic');
 			$form->setType('login','hiddenstatic');
 			$form->setType('bloc','hiddenstatic');
-			$form->setType('om_widget','hiddenstatic');
 			$form->setType('position','hiddenstatic');
+			$form->setType('om_widget','hiddenstatic');
 		}//fin supprimer
 	}
 
 	function setOnchange(&$form,$maj) {
 	//javascript controle client
 		$form->setOnchange('om_tdb','VerifNum(this)');
-		$form->setOnchange('om_widget','VerifNum(this)');
 		$form->setOnchange('position','VerifNum(this)');
+		$form->setOnchange('om_widget','VerifNum(this)');
 	}
 
 	function setTaille(&$form,$maj) {
 	//taille des champs affiches (text)
-		$form->setTaille('om_tdb',4);
-		$form->setTaille('login',20);
-		$form->setTaille('bloc',20);
-		$form->setTaille('om_widget',4);
-		$form->setTaille('position',4);
+		$form->setTaille('om_tdb',8);
+		$form->setTaille('login',40);
+		$form->setTaille('bloc',10);
+		$form->setTaille('position',8);
+		$form->setTaille('om_widget',8);
 	}
 
 	function setMax(&$form,$maj) {
 	//longueur max en saisie (text)
-		$form->setMax('om_tdb',4);
-		$form->setMax('login',20);
-		$form->setMax('bloc',20);
-		$form->setMax('om_widget',4);
-		$form->setMax('position',4);
+		$form->setMax('om_tdb',8);
+		$form->setMax('login',40);
+		$form->setMax('bloc',10);
+		$form->setMax('position',8);
+		$form->setMax('om_widget',8);
 	}
 
 	function setLib(&$form,$maj) {
@@ -116,8 +117,8 @@ class om_tdb_gen extends dbForm {
 		$form->setLib('om_tdb',_('om_tdb'));
 		$form->setLib('login',_('login'));
 		$form->setLib('bloc',_('bloc'));
-		$form->setLib('om_widget',_('om_widget'));
 		$form->setLib('position',_('position'));
+		$form->setLib('om_widget',_('om_widget'));
 	}
 
 	function setSelect(&$form, $maj,&$db,$debug) {
