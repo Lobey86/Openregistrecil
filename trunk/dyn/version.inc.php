@@ -9,5 +9,5 @@
 /**
  * Le numero de version est affiche en permanence dans le footer
  */
-$version = "2.0.0";
+$version = "2.1.0 om 4.1.0";
 ?>
