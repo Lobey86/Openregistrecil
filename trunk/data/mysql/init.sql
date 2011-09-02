@@ -477,7 +477,7 @@ INSERT INTO om_tdb_seq (id) VALUES
 CREATE TABLE om_sig_point
 (
   om_sig_point int(8) NOT NULL,
-  om_collectivite int(8) NOT NULL,
+  om_collectivite int(11) NOT NULL,
   id varchar(50) NOT NULL,
   libelle varchar(50) NOT NULL,
   actif varchar(3),
