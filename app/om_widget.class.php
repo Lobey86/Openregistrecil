@@ -29,6 +29,7 @@ class widget extends table {
     function display($params = array(), $href = array(), $db = NULL, $class = "tab", $onglet = false) {
         
         //
+        $countHrefColumns=0;
         $this->db = $db;
         //
         $this->setParams($params);      

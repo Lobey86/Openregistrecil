@@ -141,7 +141,7 @@ if (!isset($options)) {
     $options = array();
 }
 //
-$tb = new widget("../tdb/tab_wid.php", $table, $serie, $champAffiche, $champRecherche, $tri, $selection, $edition, $options);
+$tb = new widget("../app/tab_wid.php", $table, $serie, $champAffiche, $champRecherche, $tri, $selection, $edition, $options);
 //
 $params = array(
     "obj" => $obj,

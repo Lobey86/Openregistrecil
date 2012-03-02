@@ -99,6 +99,13 @@ $links = array();
         "right" => "norme_simplifiee"
     ));
 
+    array_push($links,
+    array(
+        "href" => "../scr/tab.php?obj=registre_visu",
+        "class" => "registre_visu",
+        "title" => _("registre_visu"),
+        "right" => "registre_visu"
+    ));
 
 $rubrik['links'] = $links;
 array_push($menu, $rubrik);

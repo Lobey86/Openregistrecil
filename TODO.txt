@@ -1,6 +1,11 @@
 openMairie Registre cil - Todo
 ==============================
 
+erreurs d install - presentation cnil du 1er mars 2012
+- manque externals dbpear
+- regarder deprecated
+
+
 JLB
 ===
 om-theme sunny
