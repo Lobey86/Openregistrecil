@@ -15,7 +15,7 @@ $conn[1] = array(
     "mysql",
     "",
     "root",
-    "",
+    "root",
     "",
     "localhost",
     "",

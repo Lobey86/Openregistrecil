@@ -1,6 +1,15 @@
 ﻿openMairie Exemple - Historique des versions
 ============================================
 
+2.1.0 ---------------------------------------------------------------
+
+reprise de l externals en php derniere version openMairie rc9 + phppear
+correction de variables dans om_widget.class.php et tab_wid.php
+correction tab_visu.php et tab_visu.class.php
+
+
+
+
 2.00 ----------------------------------------------------------------
 
 version openMairie 4.01
