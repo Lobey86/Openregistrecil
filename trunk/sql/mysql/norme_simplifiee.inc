@@ -3,5 +3,6 @@
 include('registre.inc');
 $ent = "registre -> norme_simplifiee";
 $selection = " where nature='norme_simplifiee'";
-
+if ($_SESSION['niveau']!= '2')
+	$selection.=" and registre.om_collectivite = '".$_SESSION['collectivite']."'";
 ?>

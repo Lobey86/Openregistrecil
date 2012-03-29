@@ -1,9 +1,0 @@
-#
-# created by: svn propset svn:externals -F ./EXTERNALS.txt .
-#
-
-openmairie svn://scm.adullact.net/svnroot/openmairie/openmairie/tags/4.1.0-rc9/
-fpdf svn://scm.adullact.net/svnroot/openmairie/externals/fpdf/tags/1.6-min/
-pear -r319707 http://svn.php.net/repository/pear/pear-core/tags/PEAR-1.9.5/
-db http://svn.php.net/repository/pear/packages/DB/tags/RELEASE_1_7_14/
-phpmailer svn://scm.adullact.net/svnroot/openmairie/externals/phpmailer/tags/5.1-min/

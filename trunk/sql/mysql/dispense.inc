@@ -3,9 +3,10 @@
 include('registre.inc');
 $ent = "registre -> dispense";
 $ico = "../app/img/ico_registre.png";
-$table="registre";
 $champRecherche=array("finalite");
 $selection = " where nature='dispense'";
+if ($_SESSION['niveau']!= '2')
+	$selection.=" and registre.om_collectivite = '".$_SESSION['collectivite']."'";
 $tri= "";
 // sous formulaire
 $sousformulaire=array("destinataire","modificatif","dossier");

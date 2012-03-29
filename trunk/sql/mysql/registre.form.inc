@@ -19,7 +19,8 @@ $champs=array("finalite",
               "date_maj",
               "avis",
               "nature",
-	      "note","conservation"	);
+              "note","conservation",
+              "om_collectivite");
 $sql_table_donnee="select
                    concat(categorie_donnee,' ', libelle) as cle,
                    concat(categorie_donnee,' ', libelle) as lib
