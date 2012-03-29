@@ -11,6 +11,8 @@ $champAffiche=array("registre", "service",
                     "date_registre");
 $champRecherche=array("registre", "service","finalite","date_registre");
 $selection = "";
+if ($_SESSION['niveau']!= '2')
+	$selection.="where registre.om_collectivite = '".$_SESSION['collectivite']."'";
 $tri= "";
 $href[0]['lien']= "#";
 $href[0]['id']= "";

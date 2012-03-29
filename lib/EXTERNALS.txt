@@ -1,9 +1,0 @@
-#
-# created by: svn propset svn:externals -F ./EXTERNALS.txt .
-#
-
-om-theme svn://scm.adullact.net/svnroot/openmairie/externals/om-theme/sunny/trunk
-
-jquery svn://scm.adullact.net/svnroot/openmairie/externals/jquery/tags/1.6.2
-jquery-ui svn://scm.adullact.net/svnroot/openmairie/externals/jquery-ui/tags/1.8.16
-jquery-thirdparty svn://scm.adullact.net/svnroot/openmairie/externals/jquery-thirdparty/tags/1.0.0
