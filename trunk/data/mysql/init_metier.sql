@@ -235,6 +235,7 @@ CREATE TABLE registre (
   reference varchar(10) NOT NULL default '',
   avis char(3) NOT NULL default '',
   exclusion text NOT NULL,
+  om_collectivite int(11),
   PRIMARY KEY  (registre)
 ) TYPE=MyISAM;
 
@@ -255,3 +256,11 @@ CREATE TABLE service (
 INSERT INTO service (service, libelle) VALUES
 ('33500', 'Service Informatique'),
 ('33510', 'Reseaux Telecoms');
+
+
+-- exemple de widget
+
+INSERT INTO `om_widget` (`om_widget`, `om_collectivite`, `libelle`, `lien`, `texte`, `om_profil`) VALUES
+(1, 1, 'Avis negatif', '#', '<script type=''text/javascript''>\r\n    $.ajax({\r\n        type: ''GET'',\r\n        url:''../app//tab_wid.php'',  \r\n        cache: false,\r\n        data: ''&obj=registre_avisnegatif'',\r\n        success: function(html){\r\n            $(''#aff'').append(html);\r\n        }\r\n    });\r\n</script><div id=''aff''></div>', '3');
+
+update om_widget_seq set id= 1;

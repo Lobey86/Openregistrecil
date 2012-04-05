@@ -1,6 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 02/09/2011 16:50 
+//gen openMairie le 05/04/2012 18:47 
 require_once (PATH_OPENMAIRIE."dbformdyn.class.php");
 
 class registre_gen extends dbForm {
@@ -30,6 +30,7 @@ class registre_gen extends dbForm {
 		$this->valF['reference'] = $val['reference'];
 		$this->valF['avis'] = $val['avis'];
 		$this->valF['exclusion'] = $val['exclusion'];
+		$this->valF['om_collectivite'] = $val['om_collectivite'];
 	}
 
 	//=================================================
@@ -100,6 +101,13 @@ class registre_gen extends dbForm {
 				$form->setType('reference','select');
 			$form->setType('avis','text');
 			$form->setType('exclusion','textarea');
+			if($this->retourformulaire=='om_collectivite')
+				$form->setType('om_collectivite','hiddenstatic');
+			else
+				if($_SESSION['niveau']==2)
+					$form->setType('om_collectivite','select');
+				else
+					$form->setType('om_collectivite','hiddenstatic');
 		}// fin ajout
 		if ($maj==1){ //modifier
 			$form->setType('registre','hiddenstatic');
@@ -129,6 +137,13 @@ class registre_gen extends dbForm {
 				$form->setType('reference','select');
 			$form->setType('avis','text');
 			$form->setType('exclusion','textarea');
+			if($this->retourformulaire=='om_collectivite')
+				$form->setType('om_collectivite','hiddenstatic');
+			else
+				if($_SESSION['niveau']==2)
+					$form->setType('om_collectivite','select');
+				else
+					$form->setType('om_collectivite','hiddenstatic');
 		}// fin modifier
 		if ($maj==2){ //supprimer
 			$form->setType('registre','hiddenstatic');
@@ -146,6 +161,7 @@ class registre_gen extends dbForm {
 			$form->setType('reference','hiddenstatic');
 			$form->setType('avis','hiddenstatic');
 			$form->setType('exclusion','hiddenstatic');
+			$form->setType('om_collectivite','hiddenstatic');
 		}//fin supprimer
 	}
 
@@ -154,6 +170,7 @@ class registre_gen extends dbForm {
 		$form->setOnchange('registre','VerifNum(this)');
 		$form->setOnchange('date_registre','fdate(this)');
 		$form->setOnchange('date_maj','fdate(this)');
+		$form->setOnchange('om_collectivite','VerifNum(this)');
 	}
 
 	function setTaille(&$form,$maj) {
@@ -173,6 +190,7 @@ class registre_gen extends dbForm {
 		$form->setTaille('reference',10);
 		$form->setTaille('avis',3);
 		$form->setTaille('exclusion',80);
+		$form->setTaille('om_collectivite',11);
 	}
 
 	function setMax(&$form,$maj) {
@@ -192,6 +210,7 @@ class registre_gen extends dbForm {
 		$form->setMax('reference',10);
 		$form->setMax('avis',3);
 		$form->setMax('exclusion',6);
+		$form->setMax('om_collectivite',11);
 	}
 
 	function setLib(&$form,$maj) {
@@ -211,6 +230,7 @@ class registre_gen extends dbForm {
 		$form->setLib('reference',_('reference'));
 		$form->setLib('avis',_('avis'));
 		$form->setLib('exclusion',_('exclusion'));
+		$form->setLib('om_collectivite',_('om_collectivite'));
 	}
 
 	function setSelect(&$form, $maj,&$db,$debug) {
@@ -220,6 +240,8 @@ class registre_gen extends dbForm {
 			// categorie_personne
 			$contenu=array();
 			$res = $db->query($sql_categorie_personne);
+			// Logger
+			$this->addToLog("setSelect()[gen/obj]: db->query(\"".$sql_categorie_personne."\");", VERBOSE_MODE);
 			if (database::isError($res))
 				die($res->getMessage().$sql_categorie_personne);
 			else{
@@ -238,6 +260,8 @@ class registre_gen extends dbForm {
 			// categorie_donnee
 			$contenu=array();
 			$res = $db->query($sql_categorie_donnee);
+			// Logger
+			$this->addToLog("setSelect()[gen/obj]: db->query(\"".$sql_categorie_donnee."\");", VERBOSE_MODE);
 			if (database::isError($res))
 				die($res->getMessage().$sql_categorie_donnee);
 			else{
@@ -256,6 +280,8 @@ class registre_gen extends dbForm {
 			// service
 			$contenu=array();
 			$res = $db->query($sql_service);
+			// Logger
+			$this->addToLog("setSelect()[gen/obj]: db->query(\"".$sql_service."\");", VERBOSE_MODE);
 			if (database::isError($res))
 				die($res->getMessage().$sql_service);
 			else{
@@ -274,6 +300,8 @@ class registre_gen extends dbForm {
 			// reference
 			$contenu=array();
 			$res = $db->query($sql_reference);
+			// Logger
+			$this->addToLog("setSelect()[gen/obj]: db->query(\"".$sql_reference."\");", VERBOSE_MODE);
 			if (database::isError($res))
 				die($res->getMessage().$sql_reference);
 			else{
@@ -289,8 +317,34 @@ class registre_gen extends dbForm {
 				}
 				$form->setSelect('reference',$contenu);
 			}// fin error db
+			// om_collectivite
+			$contenu=array();
+			$res = $db->query($sql_om_collectivite);
+			// Logger
+			$this->addToLog("setSelect()[gen/obj]: db->query(\"".$sql_om_collectivite."\");", VERBOSE_MODE);
+			if (database::isError($res))
+				die($res->getMessage().$sql_om_collectivite);
+			else{
+				if ($debug == 1)
+					echo " la requete ".$sql_om_collectivite." est executee<br>";
+				$contenu[0][0]='';
+				$contenu[1][0]=_('choisir')."&nbsp;"._('om_collectivite');
+				$k=1;
+					while ($row=& $res->fetchRow()){
+						$contenu[0][$k]=$row[0];
+						$contenu[1][$k]=$row[1];
+						$k++;
+				}
+				$form->setSelect('om_collectivite',$contenu);
+			}// fin error db
 		}// fin maj
 	}// fin select
+
+	function setVal(&$form,$maj,$validation,&$db,$DEBUG=null){
+		if($validation==0 and $maj==0 and $_SESSION['niveau']==1) {
+			$form->setVal('om_collectivite', $_SESSION['collectivite']);
+		}// fin validation
+	}// fin setVal
 
 	//==================================
 	// sous Formulaire  [subform]
@@ -307,6 +361,8 @@ class registre_gen extends dbForm {
 				$form->setVal('service', $idxformulaire);
 			if($retourformulaire =='reference')
 				$form->setVal('reference', $idxformulaire);
+			if($retourformulaire =='om_collectivite')
+				$form->setVal('om_collectivite', $idxformulaire);
 		}// fin validation
 	}// fin setValsousformulaire
 

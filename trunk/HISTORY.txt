@@ -1,13 +1,13 @@
 ﻿openMairie Exemple - Historique des versions
 ============================================
 
-2.1.0 ---------------------------------------------------------------
+2.1.0 [05 Avril 2012] version multicollectivite -----------------------
 
-reprise de l externals en php derniere version openMairie rc9 + phppear
-correction de variables dans om_widget.class.php et tab_wid.php
-correction tab_visu.php et tab_visu.class.php
-
-
+- attention modification de la base (voir data/mysql/ver_2.11.sql)
+- ajout de om_collectivite en registre (regeneration)
+- mise a niveau open_mairie 4.1.0 - reprise des externals (bug phppear)
+- correction de variables dans om_widget.class.php et tab_wid.php
+- correction tab_visu.php et tab_visu.class.php
 
 
 2.00 ----------------------------------------------------------------

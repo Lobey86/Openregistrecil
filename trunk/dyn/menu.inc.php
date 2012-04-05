@@ -137,13 +137,14 @@ array_push($menu, $rubrik);
 // }}}
 
 // {{{ Rubrique TRAITEMENT
-
+/*
 $rubrik = array(
     "title" => _("Traitement"),
     "class" => "traitement",
     "right" => "menu_traitement",
 );
 $links = array();
+*/
 // *** TRAITEMENT ***
 // inserez le lien d acces au traitement
 // ========================================================================
@@ -157,8 +158,9 @@ $links = array();
     ));
 */
 // ========================================================================
-$rubrik['links'] = $links;
-array_push($menu, $rubrik);
+
+//$rubrik['links'] = $links;
+//array_push($menu, $rubrik);
 // }}}
 
 

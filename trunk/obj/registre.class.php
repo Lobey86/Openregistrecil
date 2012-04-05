@@ -40,6 +40,7 @@ class registre extends registre_gen {
 	     $form->setType('nature', 'hidden');
 	     $form->setType('avis', 'select');
 	     $form->setType('droit_acces', 'select');
+		 $form->setType('om_collectivite', 'hiddenstatic');
 	   }
 	}
 
@@ -230,6 +231,7 @@ class registre extends registre_gen {
 			if ($maj == 0){
 			    $form->setVal('nature', $this->nature);
 			    $form->setVal('avis', 'Oui');
+				$form->setVal('om_collectivite', $_SESSION['collectivite']);
 			}	
 		}
 	}
