@@ -1,6 +1,6 @@
 <?php
 //$Id$ 
-//gen openMairie le 02/09/2011 16:50 
+//gen openMairie le 05/04/2012 18:47 
 $DEBUG=0;
 $serie=15;
 $ico="../img/ico_application.png";
@@ -21,18 +21,43 @@ if(isset($idx)){
 		$ent = $ent."&nbsp;<font id='idz1'>&nbsp;".strtoupper($idz)."&nbsp;</font>";
 }
 $table=DB_PREFIXE."registre";
-$champAffiche=array('registre','finalite','numero_cnil','concat(substring(date_registre,9,2),\'/\',substring(date_registre,6,2),\'/\',substring(date_registre,1,4)) as date_registre','nature','service','droit_acces','concat(substring(date_maj,9,2),\'/\',substring(date_maj,6,2),\'/\',substring(date_maj,1,4)) as date_maj','reference','avis');
+$champAffiche=array('registre','finalite','numero_cnil','concat(substring(date_registre,9,2),\'/\',substring(date_registre,6,2),\'/\',substring(date_registre,1,4)) as date_registre','nature','service','droit_acces','concat(substring(date_maj,9,2),\'/\',substring(date_maj,6,2),\'/\',substring(date_maj,1,4)) as date_maj','reference','avis','om_collectivite');
 $champRecherche=array('finalite','numero_cnil','nature','service','droit_acces','reference','avis');
 $tri="";
 $edition="registre";
-$selection='';
+if ($_SESSION['niveau']== '2')
+	$selection='';
+else
+	$selection=" where registre.om_collectivite = '".$_SESSION['collectivite']."'";
 if ($retourformulaire== 'categorie_personne')
-	$selection=" where registre.categorie_personne ='".$idx."'";
+	if ($_SESSION['niveau']== '2'){
+		$selection=" where registre.categorie_personne ='".$idx."'";
+	}else{
+		$selection=" where registre.categorie_personne ='".$idx."' and registre.om_collectivite = '".$_SESSION['collectivite']."'";
+	}
 if ($retourformulaire== 'categorie_donnee')
-	$selection=" where registre.categorie_donnee ='".$idx."'";
+	if ($_SESSION['niveau']== '2'){
+		$selection=" where registre.categorie_donnee ='".$idx."'";
+	}else{
+		$selection=" where registre.categorie_donnee ='".$idx."' and registre.om_collectivite = '".$_SESSION['collectivite']."'";
+	}
 if ($retourformulaire== 'service')
-	$selection=" where registre.service ='".$idx."'";
+	if ($_SESSION['niveau']== '2'){
+		$selection=" where registre.service ='".$idx."'";
+	}else{
+		$selection=" where registre.service ='".$idx."' and registre.om_collectivite = '".$_SESSION['collectivite']."'";
+	}
 if ($retourformulaire== 'reference')
-	$selection=" where registre.reference ='".$idx."'";
+	if ($_SESSION['niveau']== '2'){
+		$selection=" where registre.reference ='".$idx."'";
+	}else{
+		$selection=" where registre.reference ='".$idx."' and registre.om_collectivite = '".$_SESSION['collectivite']."'";
+	}
+if ($retourformulaire== 'om_collectivite')
+	if ($_SESSION['niveau']== '2'){
+		$selection=" where registre.om_collectivite ='".$idx."'";
+	}else{
+		$selection=" where registre.om_collectivite ='".$idx."' and registre.om_collectivite = '".$_SESSION['collectivite']."'";
+	}
 $sousformulaire=array('destinataire','dossier','modificatif');
 ?>

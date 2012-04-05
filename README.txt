@@ -3,18 +3,6 @@ openMairie Exemple
 
 
 
-
-FRAMEWORK openMairie 4.0.0
-
-[authors] ================================
-Francois Raynaud <contact@openmairie.org>
-Florent Michon<fmichon@atreal.net>
-Jean-Louis Bastide <jlb@ville-arles.fr>
-Thierry Benita <tbenita@atreal.net>
-frederic giva <f.giva@ville-arles.fr> 
-freddy francois <ffrancois@arles.cci.fr> 
-==========================================
-
 _____________________________________________________________________________
 Pre requis :
 ============
@@ -168,3 +156,9 @@ toute la documentation sur :
 [All the documentation] on:
 http://www.openmairie.org
 =======================================
+
+
+[authors] ================================
+Francois Raynaud <contact@openmairie.org>
+Jean-Louis Bastide <jlb@ville-arles.fr>
+==========================================
